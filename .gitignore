@@ -1,0 +1,22 @@
+# Never push credentials
+.env
+
+# Alert log (runtime file, not code)
+alerts_log.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+
+# DB (in case someone adds one later)
+*.db
+
+# OS
+.DS_Store
+Thumbs.db

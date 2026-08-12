@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "name": "Sony WH-1000XM5 Headphones",
+      "url": "https://www.amazon.in/dp/B09XS7JWHH",
+      "platform": "amazon",
+      "target_price": 20000
+    },
+    {
+      "name": "Samsung Galaxy Buds2",
+      "url": "https://www.flipkart.com/samsung-galaxy-buds2-bluetooth-truly-wireless-earbuds-anc/p/itm3c41040ebe9e8",
+      "platform": "flipkart",
+      "target_price": 4000
+    }
+  ]
+}
