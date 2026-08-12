@@ -11,6 +11,11 @@
       "url": "https://www.flipkart.com/samsung-galaxy-buds2-bluetooth-truly-wireless-earbuds-anc/p/itm3c41040ebe9e8",
       "platform": "flipkart",
       "target_price": 4000
+    },
+    {
+      "url": "https://www.amazon.in/gp/product/B0C1GY4Q2N/ref=ox_sc_act_title_11?smid=AJ6SIZC8YQDZX&th=1",
+      "platform": "amazon",
+      "target_price": 2600
     }
   ]
 }
