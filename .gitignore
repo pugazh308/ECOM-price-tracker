@@ -1,8 +1,6 @@
 # Never push credentials
 .env
 
-# Alert log (runtime file, not code)
-alerts_log.json
 
 # Python
 __pycache__/
