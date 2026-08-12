@@ -1,0 +1,40 @@
+name: Price Check
+
+# Deliberately manual-only (workflow_dispatch), no `schedule:` trigger.
+# GitHub's native cron scheduler can be delayed or dropped under load, so
+# an external scheduler calls this via the Actions API on a real interval.
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run price check
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          RECIPIENT_EMAIL: ${{ secrets.RECIPIENT_EMAIL }}
+        run: python run_once.py
+
+      - name: Persist alert log
+        run: |
+          if ! git diff --quiet -- alerts_log.json; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add alerts_log.json
+            git commit -m "Update alerts log"
+            git push
+          fi
